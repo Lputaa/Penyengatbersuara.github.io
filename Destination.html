@@ -5,73 +5,131 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://cdn.tailwindcss.com"></script></head>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+      }
+      .popup {
+        position: fixed;
+        bottom: 16px;
+        right: 16px;
+        z-index: 50;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        background-color: #000;
+        padding: 16px 20px;
+        border-radius: 8px;
+        color: #fff;
+        max-width: 400px;
+      }
+      .audio-player {
+        width: 100%;
+      }
+      .hide-btn {
+        background-color: rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        padding: 8px;
+        cursor: pointer;
+      }
+      .hide-btn:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+      .hide-btn svg {
+        width: 16px;
+        height: 16px;
+        fill: currentColor;
+      }
+      .hidden {
+        display: none;
+      }
+      .show-btn {
+        position: fixed;
+        bottom: 16px;
+        right: 16px;
+        background-color: #000000;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        padding: 10px 20px;
+        cursor: pointer;
+        z-index: 50;
+      }
+      .show-btn:hover {
+        background-color: #000000;
+      }
+    </style>
 <body>
-<!-- Nav Bar -->
-<header class="bg-black/90">
-        <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
-            <div class="flex h-16 items-center justify-between">
-                <div class="md:flex md:items-center md:gap-12">
-                    <a class="block text-white" href="#">
-                        <span class="text-l font-bold">Penyengat Bersuara</span>
-                    </a>
-                </div>
-    
-                <div class="hidden md:block">
-                    <nav aria-label="Global">
-                        <ul class="flex items-center gap-6 text-l">
-                            <li>
-                                <a class="text-white transition hover:text-white/75" href="index.html"> Home </a>
-                            </li>
-                            <li class="relative">
-                                <button id="dropdownToggle" class="text-white transition hover:text-white/75 focus:outline-none">
-                                    Destination
-                                </button>
-                                <div id="dropdownMenu" class="hidden absolute left-0 mt-2 w-48 bg-white border rounded shadow-lg">
-                                    <a class="block px-4 py-2 text-gray-800 hover:bg-gray-100" href="#">Beach</a>
-                                    <a class="block px-4 py-2 text-gray-800 hover:bg-gray-100" href="#">Mountain</a>
-                                    <a class="block px-4 py-2 text-gray-800 hover:bg-gray-100" href="#">City</a>
-                                </div>
-                            </li>
-                            <li>
-                                <a class="text-white transition hover:text-white/75" href="#"> FAQ </a>
-                            </li>
-                            <li>
-                                <a class="text-white transition hover:text-white/75" href="#"> About Us </a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-    
-                <div class="block md:hidden">
-                    <button id="mobileMenuButton" class="rounded bg-black/90 p-2 text-white transition hover:text-gray-600/75">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
-                    </button>
-                </div>
-            </div>
-            
-            <!-- Mobile Menu -->
-            <div id="mobileMenu" class="hidden md:hidden">
-                <nav aria-label="Mobile Navigation">
-                    <ul class="flex flex-col items-center gap-6 text-l">
-                        <li>
-                            <a class="text-white transition hover:text-white/75" href="index.html"> Home </a>
-                        </li>
-                        <li>
-                            <a class="text-white transition hover:text-white/75" href="#"> Destination </a>
-                        </li>
-                        <li>
-                            <a class="text-white transition hover:text-white/75" href="#"> FAQ </a>
-                        </li>
-                        <li>
-                            <a class="text-white transition hover:text-white/75" href="#"> About Us </a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </header>
+ <!-- Nav Bar -->
+ <header class="bg-black/90">
+  <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
+      <div class="flex h-16 items-center justify-between">
+          <div class="md:flex md:items-center md:gap-12">
+              <a class="block text-white" href="#">
+                  <span class="text-l font-bold">Penyengat Bersuara</span>
+              </a>
+          </div>
+
+          <div class="hidden md:block">
+              <nav aria-label="Global">
+                <ul class="flex items-center gap-6 text-l">
+                  <li>
+                      <a class="text-white transition hover:text-white/75" href="#"> Home </a>
+                  </li>
+                  <li class="relative group">
+                      <button id="dropdownToggle" class="text-white transition hover:text-white/75 focus:outline-none">
+                          Destination
+                      </button>
+                      <div id="dropdownMenu" class="absolute left-0 mt-2 w-48 bg-white border rounded shadow-lg hidden group-hover:block">
+                          <a class="block px-4 py-2 text-gray-800 hover:bg-gray-100" href="#">Beach</a>
+                          <a class="block px-4 py-2 text-gray-800 hover:bg-gray-100" href="#">Mountain</a>
+                          <a class="block px-4 py-2 text-gray-800 hover:bg-gray-100" href="#">City</a>
+                      </div>
+                  </li>
+                  <li>
+                      <a class="text-white transition hover:text-white/75" href="#faqSection""> FAQ </a>
+                  </li>
+                  <li>
+                      <a class="text-white transition hover:text-white/75" href="#footerSection"> About Us </a>
+                  </li>
+              </ul>
+              
+              </nav>
+          </div>
+
+          <div class="block md:hidden">
+              <button id="mobileMenuButton" class="rounded bg-black/90 p-2 text-white transition hover:text-gray-600/75">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                  </svg>
+              </button>
+          </div>
+      </div>
+      
+      <!-- Mobile Menu -->
+      <div id="mobileMenu" class="hidden md:hidden">
+          <nav aria-label="Mobile Navigation">
+              <ul class="flex flex-col items-center gap-6 text-l">
+                  <li>
+                      <a class="text-white transition hover:text-white/75" href="#"> Home </a>
+                  </li>
+                  <li>
+                      <a class="text-white transition hover:text-white/75" href="#"> Destination </a>
+                  </li>
+                  <li>
+                      <a class="text-white transition hover:text-white/75" href="#faqSection""> FAQ </a>
+                  </li>
+                  <li>
+                      <a class="text-white transition hover:text-white/75" href="#footerSection""> About Us </a>
+                  </li>
+              </ul>
+          </nav>
+      </div>
+  </div>
+</header>
 <!-- End Navigation -->
 <!-- Content 1 -->
 <section>
@@ -80,7 +138,7 @@
         <div class="relative h-64 overflow-hidden rounded-lg sm:h-80 lg:order-last lg:h-full">
           <img
             alt=""
-            src="pictures/penyengat-island.JPG"
+            src="pictures/penyengat-island.jpg"
             class="absolute inset-0 h-full w-full object-cover"
           />
         </div>
@@ -95,40 +153,36 @@
         </div>
       </div>
     </div>
-  </section>
-  <aside
-  class="fixed bottom-4 end-4 z-50 flex flex-col items-center gap-4 rounded-lg bg-black px-5 py-3 text-white"
->
-  <a href="#" target="_blank" rel="noreferrer" class="text-sm font-medium hover:opacity-75">
-    Hey! Come Check This Out 👋
+</section>
+<!-- Audio -->
+<button id="showPopupBtn" class="show-btn" onclick="showPopup()">
+<svg class="w-6 h-6 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 8">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7 7.674 1.3a.91.91 0 0 0-1.348 0L1 7"/>
+</svg>
+  <span class="sr-only">Show</span>
+</button>
+<aside id="popup" class="popup">
+  <a target="_blank" rel="noreferrer" class="text-sm font-medium hover:opacity-75">
+    Hey! look at this audio version
   </a>
-
-  <!-- Audio -->
   <div class="w-full max-w-md">
     <div class="bg-gray-200 rounded-lg">
-      <!-- Tempatkan audio player di sini -->
       <div class="audio-player p-2">
-        <audio controls class="w-full">                   
-           <source src="src/test.m4a" type="audio/mp4">
-          <source src="src/test.mp3" type="audio/mpeg">
-          <source src="src/test.ogg" type="audio/ogg">
-        
-
+        <audio controls class="w-full">
+          <source src="/src/test.m4a" type="audio/mp4">
+          <source src="/src/test.mp3" type="audio/mpeg">
+          <source src="/src/test.ogg" type="audio/ogg">
           Browser Anda tidak mendukung elemen audio.
         </audio>
       </div>
     </div>
   </div>
-
-  <button class="rounded bg-white/20 p-1 hover:bg-white/10">
-    <span class="sr-only">Close</span>
+  <button class="hide-btn" onclick="hidePopup()">
+    <span class="sr-only">Hide</span>
     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-      <path
-        fillRule="evenodd"
-        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-        clipRule="evenodd"
-      />
+      <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
     </svg>
+  </button>
   </button>
 </aside>
 <!-- end Audio -->
@@ -169,7 +223,7 @@
       <div class="absolute end-4 top-4 sm:end-6 sm:top-6 lg:end-8 lg:top-8">
         <a
           class="inline-block rounded-full bg-teal-600 p-2 text-white shadow transition hover:bg-teal-500 sm:p-3 lg:p-4"
-          href="index.html"
+          href="tailwind.html"
         >
           <span class="sr-only">Back to top</span>
   
@@ -337,6 +391,15 @@
 </footer>
 <!-- End Footer -->
 <script>
+   function hidePopup() {
+    document.getElementById('popup').classList.add('hidden');
+    document.getElementById('showPopupBtn').classList.remove('hidden');
+  }
+
+  function showPopup() {
+    document.getElementById('popup').classList.remove('hidden');
+    document.getElementById('showPopupBtn').classList.add('hidden');
+  }
     // JavaScript untuk menangani dropdown menu
     document.getElementById('dropdownToggle').addEventListener('click', function() {
         var dropdownMenu = document.getElementById('dropdownMenu');
