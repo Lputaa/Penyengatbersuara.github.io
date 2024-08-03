@@ -1,0 +1,55 @@
+{
+    "en": {
+      "nav": {
+        "home": "Home",
+        "destination": "Destination",
+        "faq": "FAQ",
+        "about": "About Us"
+      },
+      "cta": {
+        "title": "Explore The Historical Island",
+        "description": "Welcome to Penyengat Island, a small but historically rich island in the Riau Islands, Indonesia. In this audio tour, we will take you through some of the most important sites on the island. Let's start our journey with a brief introduction to Penyengat Island...",
+        "button": "Let's The journey begin"
+      },
+      "destination": {
+        "title": "Sultan Riau Mosque",
+        "description": "Our first object is the Sultan Riau Mosque, a historical building built in 1832. This mosque is famous for its dome made of chicken eggs as a binding material. In addition to functioning as a place of worship, this mosque was also a center of education and culture in its time. Let's take a closer look at the unique architecture and the story behind the construction of this mosque..."
+      },
+      "faq": {
+        "question1": "Lorem ipsum dolor sit amet consectetur adipisicing?",
+        "answer1": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab hic veritatis molestias culpa in, recusandae laboriosam neque aliquid libero nesciunt voluptate dicta quo officiis explicabo consequuntur distinctio corporis earum similique!",
+        "question2": "Lorem ipsum dolor sit amet consectetur adipisicing?",
+        "answer2": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab hic veritatis molestias culpa in, recusandae laboriosam neque aliquid libero nesciunt voluptate dicta quo officiis explicabo consequuntur distinctio corporis earum similique!"
+      },
+      "footer": {
+        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium natus quod eveniet aut perferendis distinctio iusto repudiandae, provident velit earum?"
+      }
+    },
+    "id": {
+      "nav": {
+        "home": "Beranda",
+        "destination": "Destinasi",
+        "faq": "FAQ",
+        "about": "Tentang Kami"
+      },
+      "cta": {
+        "title": "Eksplor Pulau Bersejarah",
+        "description": "Selamat datang di Pulau Penyengat, sebuah pulau kecil namun kaya akan sejarah di Kepulauan Riau, Indonesia. Dalam tur audio ini, kami akan membawa Anda melalui beberapa situs paling penting di pulau ini. Mari kita mulai perjalanan kita dengan pengantar singkat tentang Pulau Penyengat...",
+        "button": "Mari Mulai Perjalanan"
+      },
+      "destination": {
+        "title": "Mesjid Raya Sultan Riau",
+        "description": "Objek pertama kita adalah Mesjid Raya Sultan Riau, sebuah bangunan bersejarah yang dibangun pada tahun 1832. Mesjid ini terkenal dengan kubahnya yang terbuat dari telur ayam sebagai bahan pengikat. Selain berfungsi sebagai tempat ibadah, mesjid ini juga merupakan pusat pendidikan dan budaya pada masanya. Mari kita lihat lebih dekat arsitektur unik dan cerita di balik pembangunan mesjid ini..."
+      },
+      "faq": {
+        "question1": "Apa itu Lorem ipsum dolor sit amet consectetur adipisicing?",
+        "answer1": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab hic veritatis molestias culpa in, recusandae laboriosam neque aliquid libero nesciunt voluptate dicta quo officiis explicabo consequuntur distinctio corporis earum similique!",
+        "question2": "Apa itu Lorem ipsum dolor sit amet consectetur adipisicing?",
+        "answer2": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab hic veritatis molestias culpa in, recusandae laboriosam neque aliquid libero nesciunt voluptate dicta quo officiis explicabo consequuntur distinctio corporis earum similique!"
+      },
+      "footer": {
+        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium natus quod eveniet aut perferendis distinctio iusto repudiandae, provident velit earum?"
+      }
+    }
+  }
+  
